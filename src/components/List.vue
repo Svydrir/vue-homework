@@ -15,8 +15,8 @@ export default {
   computed: {
     ...mapState(['list']),
     todosCount () {
-      return this.$store.getters.todosCount
-    }
+      return this.$store.getters.todosCount;
+    },
   },
   methods: {
     ...mapActions(['removeTask']),

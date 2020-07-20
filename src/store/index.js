@@ -9,8 +9,8 @@ export default new Vuex.Store({
   },
   getters: {
     todosCount: state => {
-        return state.list.length;
-    }
+      return state.list.length;
+    },
   },
   mutations: {
     addTask(state, task) {
@@ -21,17 +21,17 @@ export default new Vuex.Store({
     },
     removaAllTasks(state) {
       state.list = [];
-    }
+    },
   },
   actions: {
-    addTask({ commit }, task) {
-      commit('addTask', task);
+    addTask({ commit, getters }, task) {
+      commit('addTask', `Задача №${getters.todosCount+1} ${task}`);
     },
     removeTask({ commit }, i) {
       commit('removeTask', i);
     },
     removaAllTasks({ commit }) {
       commit('removaAllTasks');
-    }
+    },
   },
 });
